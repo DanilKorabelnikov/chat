@@ -12,7 +12,7 @@ api = API(tokens=TOKEN)
 async def post():
     while True:
         await api.wall.post(owner_id=OWNER_ID, message="Чат для продавцов имущества, аксесуаров и т.д.\n"
-                                                       "Продажа виртуальной валюты запрещена!"
+                                                       "Продажа виpтyaльнoй вaлюты запрещена!"
                                                        f"{LINK}\n"
                                                        f"{LINK}")
         await asyncio.sleep(int(SLEEP))
