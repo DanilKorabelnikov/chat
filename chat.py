@@ -11,7 +11,7 @@ api = API(tokens=TOKEN)
 
 async def post():
     while True:
-        await api.wall.post(owner_id=OWNER_ID, message="Чат для продавцов имущества, аксесуаров и т.д.\n"
+        await api.wall.post(owner_id=OWNER_ID, message="Чат для продавцов имущества, аксессуаров и т.д.\n"
                                                        "Продажа виpтyaльнoй вaлюты запрещена!\n"
                                                        f"{LINK}\n"
                                                        f"{LINK}")
