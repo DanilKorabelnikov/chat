@@ -3,9 +3,9 @@ import asyncio
 import os
 
 TOKEN = os.environ.get("TOKEN")
-LINK = os.environ.get("LINK")  # vk.cc/aBAZSc
 SLEEP = os.environ.get("SLEEP")
 USER_ID = os.environ.get("USER_ID")
+TEXT = os.environ.get("TEXT")
 api = API(tokens=TOKEN)
 
 
@@ -15,22 +15,14 @@ async def post():
         while True:
             for item in group:
                 if item == 73482240:
-                    await api.wall.post(owner_id=-item, message="Чат для продавцов имущества, аксессуаров и т.д.\n"
-                                                                "Прoдaжa виpтyaльной вaлюты запрещена!\n"
-                                                                f"{LINK}\n"
-                                                                f"{LINK}")
+                    await api.wall.post(owner_id=-item, message=f"{TEXT}")
                 else:
-                    await api.wall.post(owner_id=-item, message="#arizona #arizonarp\n"
-                                                                "Чат для продавцов имущества Arizona RP, аксессуаров и т.д.\n"
-                                                                "Прoдaжa виpтyaльной вaлюты запрещена!\n"
-                                                                f"{LINK}\n"
-                                                                f"{LINK}")
+                    await api.wall.post(owner_id=-item, message=f"{TEXT}")
                 await asyncio.sleep(60)
             await asyncio.sleep(int(SLEEP))
     except:
         await api.messages.send(user_id=int(USER_ID), random_id=api.extension.random_id(), peer_id=int(USER_ID),
                                 message="Произошла ошибка при создание поста!")
-      
 
 
 if __name__ == '__main__':
